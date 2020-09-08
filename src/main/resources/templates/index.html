@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>服务端处理</title>
+    <link href='datatables/jquery.dataTables.min.css' rel='stylesheet'/>
+    <script src='datatables/jquery-3.5.1.js' type='text/javascript'></script>
+    <script src='datatables/jquery.dataTables.min.js' type='text/javascript'></script>
+    <script src="datatables/jquery.spring-friendly.js"></script>
+</head>
+<body>
+
+<fieldset>
+    <legend>客户端处理:</legend>
+    <table id="clientside" class="display" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+        </thead>
+    </table>
+</fieldset>
+<br>
+<hr>
+<br>
+<fieldset>
+    <legend>服务端处理:</legend>
+    <table id="serverside" class="display" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+        </thead>
+    </table>
+
+</fieldset>
+<script>
+    //客户端模式
+    $('#clientside').DataTable({
+        ajax: {
+            url: "/clientside"
+        },
+        columns: [
+            {data: "firstName"},
+            {data: "position"},
+            {data: "office"},
+            {data: "age"},
+            {data: "startDate"},
+            {data: "salary"}
+        ]
+    });
+
+    //服务器模式
+    $('#serverside').DataTable({
+        serverSide: true,
+        ajax: {
+            url: "/dtlist"
+        },
+        columns: [
+            {data: "firstName"},
+            {data: "position"},
+            {data: "office"},
+            {data: "age"},
+            {data: "startDate"},
+            {data: "salary"}
+        ]
+    });
+</script>
+</body>
+</html>
