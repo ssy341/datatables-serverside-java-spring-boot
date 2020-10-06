@@ -1,10 +1,10 @@
 package club.datatables.serverside.javaversion;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.datatables.repository.DataTablesRepositoryFactoryBean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-
 
 /**
  * @author Datatables中文网 http://datatables.club
@@ -12,6 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  */
 @SpringBootApplication
 @EnableJpaRepositories(repositoryFactoryBeanClass = DataTablesRepositoryFactoryBean.class)
+@MapperScan("club.datatables.serverside.javaversion.mapper")
 public class JavaversionApplication {
 
     public static void main(String[] args) {

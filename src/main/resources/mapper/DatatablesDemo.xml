@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.datatables.serverside.javaversion.mapper.DatatablesDemoMapper" >
+
+    <sql id="Base_Column_List" >
+        id, age, email, extn, first_name,last_name,office,position,salary,start_date
+    </sql>
+
+    <select id="getAllByFirstName" resultType="club.datatables.serverside.javaversion.entity.DatatablesDemo"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM tb_datatables_demo
+        where 1=1
+        <if test="firstName != null">and first_name = #{firstName}</if>
+    </select>
+
+
+</mapper>
